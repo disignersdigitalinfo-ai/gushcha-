@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Гуща — кофейня-обжарочная</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#E4E8E9;--paper:#FAFBFB;--ink:#241812;--muted:#4A3F39;--line:#C9CFD1;--accent:#2B4FD8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Golos Text',system-ui,sans-serif;font-size:17px;line-height:1.55}
+a{color:var(--ink)}a:hover{color:#5A4E48}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
+.display{font-family:'Dela Gothic One',sans-serif;font-weight:400}
+header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:24px;padding-bottom:24px}
+.logo{font-size:26px;text-decoration:none}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;font-weight:500}
+nav a{text-decoration:none;padding:10px 0}
+.pill{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:999px;text-decoration:none;font-weight:600}
+.pill-dark{background:var(--ink);color:var(--paper)!important;min-height:44px;padding:0 20px}
+.pill-accent{background:var(--accent);color:#fff!important}
+.pill-outline{border:2px solid var(--ink)}
+.hero{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-end;padding-top:32px;padding-bottom:96px}
+.hero-main{flex:999 1 520px;min-width:0}
+h1{margin:0;font-size:clamp(88px,16vw,232px);line-height:.86;letter-spacing:-.02em;color:var(--accent)}
+.lead{margin:32px 0 0;max-width:34ch;font-size:24px;line-height:1.4;font-weight:500}
+.row{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px}
+.open{margin:0;display:flex;align-items:center;gap:10px;color:var(--muted)}
+.dot{width:10px;height:10px;border-radius:50%;background:#1F8A4C}
+.beans{flex:1 1 360px;min-width:0;max-width:460px}
+.ticket{background:var(--paper);border:2px solid var(--ink);border-radius:6px;overflow:hidden}
+.ticket-head{background:var(--ink);color:var(--paper);padding:14px 24px;display:flex;justify-content:space-between;gap:12px;font-weight:500}
+.ticket-body{padding:24px 24px 8px}
+.ticket h2{margin:0;font-size:36px;line-height:1.05}
+.notes{margin:12px 0 0;font-size:20px;line-height:1.4;color:var(--accent);font-weight:600}
+dl.spec{margin:16px 0 0;padding:0 24px 24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);font-size:15px}
+dl.spec dt,dl.spec dd{margin:0;padding:12px 0;border-top:1px solid var(--line)}
+dl.spec dt{color:var(--muted)}dl.spec dd{font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);font:inherit;font-size:15px;font-weight:500;cursor:pointer}
+.chip[aria-pressed="true"]{font-weight:600}
+.beans .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.menu .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.menu{background:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.split{display:flex;flex-wrap:wrap;gap:48px;padding-top:88px;padding-bottom:88px}
+.side{flex:1 1 280px;min-width:0}
+h2.big{margin:0;font-size:56px;line-height:1}
+.menu ul{flex:999 1 520px;min-width:0;margin:0;padding:0;list-style:none}
+.menu li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;padding:20px 0;border-bottom:1px solid var(--line)}
+.menu li strong{font-size:20px}
+.menu li span{color:var(--muted);font-size:15px}
+.ph{border-radius:6px;border:2px dashed #8A9396;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+.about{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding-top:96px;padding-bottom:96px}
+.about > *{flex:1 1 420px;min-width:0}
+.about .ph{aspect-ratio:4/3;background:#D5DBDD;color:var(--muted)}
+.about h2{margin:0;font-size:44px;line-height:1.05}
+.about p{max-width:46ch}
+.visit{background:var(--ink);color:var(--paper)}
+.visit a.pill{background:var(--paper);color:var(--ink)!important}
+.visit .side{flex:1 1 360px}
+.visit dl{margin:32px 0 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 32px}
+.visit dt{color:var(--line)}.visit dd{margin:0;font-weight:500}
+.map{flex:999 1 480px;min-width:0;min-height:360px;background:repeating-linear-gradient(45deg,#2F221B 0 14px,#34271F 14px 28px);color:var(--line)}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:40px;padding-bottom:56px;color:var(--muted);font-size:15px}
+footer p{margin:0}
+@media (max-width:600px){h2.big{font-size:44px}.about h2{font-size:34px}.lead{font-size:20px}}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <a href="#top" class="logo display">Гуща</a>
+  <nav aria-label="Разделы">
+    <a href="#beans">Зёрна недели</a>
+    <a href="#menu">Меню</a>
+    <a href="#visit">Как найти</a>
+    <a href="#visit" class="pill pill-dark">Построить маршрут</a>
+  </nav>
+</header>
+
+<section id="top" class="wrap hero">
+  <div class="hero-main">
+    <h1 class="display">Гуща</h1>
+    <p class="lead">Кофейня-обжарочная на углу. Варим только то, что обжарили на этой неделе.</p>
+    <div class="row">
+      <a href="#menu" class="pill pill-accent">Посмотреть меню</a>
+      <p class="open"><span class="dot" aria-hidden="true"></span>Открыто сегодня до 22:00</p>
+    </div>
+  </div>
+
+  <div id="beans" class="beans">
+    <div class="ticket" aria-live="polite">
+      <div class="ticket-head"><span>Сейчас в воронке</span><span id="lot-price"></span></div>
+      <div class="ticket-body">
+        <h2 class="display" id="lot-name"></h2>
+        <p class="notes" id="lot-notes"></p>
+      </div>
+      <dl class="spec">
+        <dt>Обработка</dt><dd id="lot-process"></dd>
+        <dt>Обжарка</dt><dd id="lot-roast"></dd>
+        <dt>Как варим</dt><dd id="lot-method"></dd>
+      </dl>
+    </div>
+    <p style="margin:20px 0 10px;font-weight:500">Ещё на этой неделе</p>
+    <div class="chips" id="lot-chips"></div>
+  </div>
+</section>
+
+<section id="menu" class="menu">
+  <div class="wrap split">
+    <div class="side">
+      <h2 class="big display">Меню</h2>
+      <p style="margin:20px 0 0;max-width:30ch;color:var(--muted)">Молоко любое: коровье, овсяное или миндальное, без доплаты.</p>
+      <div class="chips" role="group" aria-label="Раздел меню" id="tab-chips" style="margin-top:32px;max-width:320px"></div>
+    </div>
+    <ul id="menu-list"></ul>
+  </div>
+</section>
+
+<section class="wrap about">
+  <div class="ph" role="img" aria-label="Место для фото: обжарочный аппарат в зале">Фото: обжарочный аппарат прямо в зале</div>
+  <div>
+    <h2 class="display">Обжариваем по вторникам и пятницам</h2>
+    <p style="margin:24px 0 0">Ростер стоит прямо в зале, так что в эти дни у нас пахнет на весь квартал. Зёрна отдыхают три дня и уходят в воронку.</p>
+    <p style="margin:16px 0 0">Любой лот из воронки можно забрать домой пачкой 250 г. Смелем под вашу кофеварку.</p>
+    <a href="#beans" class="pill pill-outline" style="margin-top:28px">Выбрать зёрна домой</a>
+  </div>
+</section>
+
+<section id="visit" class="visit">
+  <div class="wrap split">
+    <div class="side">
+      <h2 class="big display">Как найти</h2>
+      <p style="margin:24px 0 0;font-size:22px;font-weight:500">[Адрес кофейни]</p>
+      <p style="margin:8px 0 0;color:var(--line)">[Ориентир: например, вход со двора, синяя дверь]</p>
+      <dl>
+        <dt>Пн–Пт</dt><dd>8:00–22:00</dd>
+        <dt>Сб–Вс</dt><dd>9:00–22:00</dd>
+        <dt>Телефон</dt><dd>[+7 000 000-00-00]</dd>
+      </dl>
+      <a href="#visit" class="pill" style="margin-top:36px">Построить маршрут</a>
+    </div>
+    <div class="ph map" role="img" aria-label="Место для карты">Карта с отметкой кофейни</div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p><span class="display" style="color:var(--ink)">Гуща</span>, кофейня-обжарочная</p>
+  <p>Новые лоты публикуем в <a href="#top">телеграм-канале</a></p>
+</footer>
+
+<script>
+var lots = [
+  {name:'Эфиопия Гуджи', process:'Мытая', notes:'Бергамот, белый персик, чёрный чай', roast:'21 октября', method:'Воронка V60, 250 мл', price:'320 ₽'},
+  {name:'Колумбия Уила', process:'Анаэробная ферментация', notes:'Вишня, какао, тростниковый сахар', roast:'19 октября', method:'Аэропресс, 200 мл', price:'340 ₽'},
+  {name:'Кения Ньери', process:'Мытая', notes:'Чёрная смородина, грейпфрут, томат', roast:'23 октября', method:'Кемекс, 300 мл', price:'360 ₽'}
+];
+var menu = {
+  'Эспрессо':[['Эспрессо','Сегодня на бленде из Бразилии и Эфиопии','160 ₽'],['Американо','Эспрессо и горячая вода, 250 мл','180 ₽'],['Капучино','250 мл, плотная молочная пена','230 ₽'],['Флэт уайт','Двойной эспрессо, меньше молока','240 ₽'],['Раф','Со сливками и ванилью из стручка','290 ₽']],
+  'Фильтр':[['Воронка V60','Любой лот недели, 250 мл','320 ₽'],['Кемекс на двоих','500 мл, подаём в графине','520 ₽'],['Аэропресс','Плотнее и слаще воронки, 200 мл','300 ₽'],['Колд брю','Настаиваем 16 часов, 300 мл','280 ₽'],['Дрип-пакеты домой','5 штук, лот недели','450 ₽']],
+  'Не кофе':[['Какао','На овсяном молоке, без сахара','260 ₽'],['Гречишный чай','Чайник на 400 мл','200 ₽'],['Матча латте','Японская матча и любое молоко','300 ₽'],['Облепиховый морс','Тёплый или холодный','220 ₽'],['Лимонад с каскарой','Каскара — сушёная оболочка кофейной ягоды','270 ₽']],
+  'Еда':[['Круассан','Печём утром, до 12:00 тёплые','190 ₽'],['Сырники','Со сметаной и ягодным соусом','340 ₽'],['Сэндвич с ростбифом','Чиабатта, горчица, маринованный лук','420 ₽'],['Гранола','С греческим йогуртом и сезонными ягодами','290 ₽'],['Баскский чизкейк','Кусок на одного или целый под заказ','280 ₽']]
+};
+function chips(container, labels, current, onPick){
+  container.innerHTML='';
+  labels.forEach(function(label,i){
+    var b=document.createElement('button');
+    b.type='button';b.className='chip';b.textContent=label;
+    b.setAttribute('aria-pressed', String(i===current));
+    b.onclick=function(){onPick(i)};
+    container.appendChild(b);
+  });
+}
+function showLot(i){
+  var l=lots[i];
+  ['name','notes','process','roast','method','price'].forEach(function(k){document.getElementById('lot-'+k).textContent=l[k]});
+  chips(document.getElementById('lot-chips'), lots.map(function(x){return x.name}), i, showLot);
+}
+var tabs=Object.keys(menu);
+function showTab(i){
+  var list=document.getElementById('menu-list');list.innerHTML='';
+  menu[tabs[i]].forEach(function(it){
+    var li=document.createElement('li');
+    li.innerHTML='<strong></strong><strong style="white-space:nowrap"></strong><span></span>';
+    li.children[0].textContent=it[0];li.children[1].textContent=it[2];li.children[2].textContent=it[1];
+    list.appendChild(li);
+  });
+  chips(document.getElementById('tab-chips'), tabs, i, showTab);
+}
+showLot(0);showTab(0);
+</script>
+</body>
+</html>
